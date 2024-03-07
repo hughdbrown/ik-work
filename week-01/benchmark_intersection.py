@@ -13,7 +13,7 @@ def intersection_1(a, b):
         result.extend([k] * count)
     return result
 
-def intersection_4(a, b):
+def intersection_2(a, b):
     ac = Counter(a)
     bc = Counter(b)
     result = []
@@ -23,7 +23,7 @@ def intersection_4(a, b):
             result.extend([k] * count)
     return result
 
-def intersection_2(a, b):
+def intersection_3(a, b):
     ac = Counter(a)
     bc = Counter(b)
     result = []
@@ -33,7 +33,7 @@ def intersection_2(a, b):
         result.extend([k] * count)
     return result
 
-def intersection_3(a, b):
+def intersection_4(a, b):
     ac = sorted(a)
     bc = sorted(b)
     result = []
@@ -45,7 +45,7 @@ def intersection_3(a, b):
             i += 1
             j += 1
         else:
-            if ac[i] < bc[j]:
+            if left < right:
                 while i < len(ac) and ac[i] < right:
                     i += 1
             else:
@@ -54,8 +54,39 @@ def intersection_3(a, b):
 
     return result
 
+def intersection_5(a, b):
+    ac = sorted(a)
+    bc = sorted(b)
+    result = []
+    i, j = 0, 0
+    while i < len(ac) and j < len(bc):
+        left, right = ac[i], bc[j]
+        if left == right:
+            result.append(left)
+            i += 1
+            j += 1
+        else:
+            if left < right:
+                i += 1
+            else:
+                j += 1
+
+    return result
+
+
+def intersection_6(a, b):
+    result = []
+    for a_item in a:
+        for i, b_item in enumerate(b):
+            if a_item == b_item:
+                result.append(a_item)
+                b.pop(i)
+                break
+    return result
+
+
 def main():
-    funcs = [intersection_1, intersection_2, intersection_3, intersection_4]
+    funcs = [intersection_1, intersection_2, intersection_3, intersection_4, intersection_5, intersection_6]
     data_a = [randint(0, 1000) for _ in range(10000000)]
     data_b = [randint(0, 1000) for _ in range(10000000)]
 
