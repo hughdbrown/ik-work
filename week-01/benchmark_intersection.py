@@ -9,8 +9,19 @@ def intersection_1(a, b):
     bc = Counter(b)
     result = []
     for k, v in ac.items():
-        result.extend([k] * min(v, bc.get(k, 0)))
-    return result 
+        count = min(v, bc.get(k, 0))
+        result.extend([k] * count)
+    return result
+
+def intersection_4(a, b):
+    ac = Counter(a)
+    bc = Counter(b)
+    result = []
+    for k, v in ac.items():
+        if k in bc:
+            count = min(v, bc[k])
+            result.extend([k] * count)
+    return result
 
 def intersection_2(a, b):
     ac = Counter(a)
@@ -18,8 +29,9 @@ def intersection_2(a, b):
     result = []
     keys = set(ac).intersection(bc)
     for k in keys:
-        result.extend([k] * min(ac[k], bc[k]))
-    return result 
+        count = min(ac[k], bc[k])
+        result.extend([k] * count)
+    return result
 
 def intersection_3(a, b):
     ac = sorted(a)
@@ -40,10 +52,10 @@ def intersection_3(a, b):
                 while j < len(bc) and bc[j] < left:
                     j += 1
 
-    return result 
+    return result
 
 def main():
-    funcs = [intersection_1, intersection_2, intersection_3]
+    funcs = [intersection_1, intersection_2, intersection_3, intersection_4]
     data_a = [randint(0, 1000) for _ in range(10000000)]
     data_b = [randint(0, 1000) for _ in range(10000000)]
 
