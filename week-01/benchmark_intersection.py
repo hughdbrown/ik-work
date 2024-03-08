@@ -5,6 +5,7 @@ from datetime import datetime
 from random import randint
 
 def intersection_1(a, b):
+    # Counted hashtable approach
     # O(n)
     ac = Counter(a)
     bc = Counter(b)
@@ -15,6 +16,7 @@ def intersection_1(a, b):
     return result
 
 def intersection_2(a, b):
+    # Counted hashtable approach
     # O(n)
     ac = Counter(a)
     bc = Counter(b)
@@ -26,6 +28,7 @@ def intersection_2(a, b):
     return result
 
 def intersection_3(a, b):
+    # Counted hashtable approach
     # O(n)
     ac = Counter(a)
     bc = Counter(b)
@@ -37,6 +40,8 @@ def intersection_3(a, b):
     return result
 
 def intersection_4(a, b):
+    # Two pointer method on sorted lists
+    # Multiple loop increments
     # O(n logn)
     ac = sorted(a)
     bc = sorted(b)
@@ -59,6 +64,8 @@ def intersection_4(a, b):
     return result
 
 def intersection_5(a, b):
+    # Two pointer method on sorted lists
+    # Single loop increment
     # O(n logn)
     ac = sorted(a)
     bc = sorted(b)
@@ -80,6 +87,8 @@ def intersection_5(a, b):
 
 
 def intersection_6(a, b):
+    # Naive iteration over lists
+    # Modifies lists
     # time: O(n**3)
     result = []
     for a_item in a:
