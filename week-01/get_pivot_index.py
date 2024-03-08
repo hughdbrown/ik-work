@@ -13,9 +13,7 @@ def get_pivot_index(nums):
     >>> get_pivot_index([0, -1, 1])
     0
     """
-    # Write your code here.
-    left = 0
-    right = sum(nums)
+    left, right = 0, sum(nums)
     for i, x in enumerate(nums):
         right -= x
         if i > 0:
