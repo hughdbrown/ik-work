@@ -115,7 +115,7 @@ def main():
             start = datetime.now()
             r = fn(a, b)
             end = datetime.now()
-            print(f"{fn.__name__} {end - start} {sum(r)}")
+            print(f"{fn.__name__} {end - start} {sum(r)} {len(r)}")
 
 
 if __name__ == '__main__':
