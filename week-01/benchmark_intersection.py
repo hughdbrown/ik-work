@@ -100,6 +100,21 @@ def intersection_6(a, b):
     return result
 
 
+def intersection_7(a, b):
+    # Naive iteration over lists
+    # Modifies lists
+    # time: O(n**2)
+    result = []
+    for a_item in a:
+        for i, b_item in enumerate(b):
+            if a_item == b_item:
+                result.append(a_item)
+                end = b.pop()
+                if i < len(b):
+                    b[i] = end
+                break
+    return result
+
 def main():
     sizes = [100, 1000, 10000, 100000, 1000000, 10000000]
     funcs = [intersection_1, intersection_2, intersection_3, intersection_4, intersection_5, intersection_6]
