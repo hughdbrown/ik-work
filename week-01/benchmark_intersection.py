@@ -116,8 +116,23 @@ def intersection_7(a, b):
     return result
 
 def main():
-    sizes = [100, 1000, 10000, 100000, 1000000, 10000000]
-    funcs = [intersection_1, intersection_2, intersection_3, intersection_4, intersection_5, intersection_6]
+    sizes = [
+        100,
+        1000,
+        10000,
+        100000,
+        1000000,
+        10000000,
+    ]
+    funcs = [
+        intersection_1,
+        intersection_2,
+        intersection_3,
+        intersection_4,
+        intersection_5,
+        intersection_6, # Very slow
+        intersection_7,
+    ]
     data_a = [randint(0, 1000) for _ in range(sizes[-1])]
     data_b = [randint(0, 1000) for _ in range(sizes[-1])]
 
