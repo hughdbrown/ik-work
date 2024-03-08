@@ -5,6 +5,7 @@ from datetime import datetime
 from random import randint
 
 def intersection_1(a, b):
+    # O(n)
     ac = Counter(a)
     bc = Counter(b)
     result = []
@@ -14,6 +15,7 @@ def intersection_1(a, b):
     return result
 
 def intersection_2(a, b):
+    # O(n)
     ac = Counter(a)
     bc = Counter(b)
     result = []
@@ -24,6 +26,7 @@ def intersection_2(a, b):
     return result
 
 def intersection_3(a, b):
+    # O(n)
     ac = Counter(a)
     bc = Counter(b)
     result = []
@@ -34,6 +37,7 @@ def intersection_3(a, b):
     return result
 
 def intersection_4(a, b):
+    # O(n logn)
     ac = sorted(a)
     bc = sorted(b)
     result = []
@@ -55,6 +59,7 @@ def intersection_4(a, b):
     return result
 
 def intersection_5(a, b):
+    # O(n logn)
     ac = sorted(a)
     bc = sorted(b)
     result = []
@@ -75,6 +80,7 @@ def intersection_5(a, b):
 
 
 def intersection_6(a, b):
+    # time: O(n**3)
     result = []
     for a_item in a:
         for i, b_item in enumerate(b):
@@ -86,11 +92,12 @@ def intersection_6(a, b):
 
 
 def main():
+    sizes = [100, 1000, 10000, 100000, 1000000, 10000000]
     funcs = [intersection_1, intersection_2, intersection_3, intersection_4, intersection_5, intersection_6]
-    data_a = [randint(0, 1000) for _ in range(10000000)]
-    data_b = [randint(0, 1000) for _ in range(10000000)]
+    data_a = [randint(0, 1000) for _ in range(sizes[-1])]
+    data_b = [randint(0, 1000) for _ in range(sizes[-1])]
 
-    for size in [100, 1000, 10000, 100000, 1000000, 10000000]:
+    for size in sizes:
         a = data_a[:size]
         b = data_b[:size]
         print(f"{'-' * 30} {size = }")
